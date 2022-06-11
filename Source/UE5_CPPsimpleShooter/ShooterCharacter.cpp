@@ -44,7 +44,7 @@ void AShooterCharacter::MoveForward(float AxisValue)
 
 void AShooterCharacter::LookUp(float AxisValue)
 {
-	AddControllerPitchInput(AxisValue);
+	AddControllerPitchInput(AxisValue );
 }
 
 void AShooterCharacter::MoveRight(float AxisValue)
