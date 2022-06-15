@@ -18,7 +18,10 @@ void AShooterCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 
-	Gun = GetWorld()->SpawnActor<AGun>(GunClass);	
+	Gun = GetWorld()->SpawnActor<AGun>(GunClass);
+	GetMesh()->HideBoneByName(TEXT("weapon_r"), EPhysBodyOp::PBO_MAX);
+	Gun->AttachToComponent(GetMesh(), FAttachmentTransformRules::KeepRelativeTransform, TEXT("WeaponSocket"));
+	Gun->SetOwner(this);
 }
 
 // Called every frame
