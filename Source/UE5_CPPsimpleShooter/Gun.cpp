@@ -3,6 +3,8 @@
 
 #include "Gun.h"
 
+#include "Kismet/GameplayStatics.h"
+
 
 // Sets default values
 AGun::AGun()
@@ -20,7 +22,7 @@ AGun::AGun()
 
 void AGun::PullTrigger()
 {
-	UE_LOG(LogTemp, Warning, TEXT("Shoot"));
+	UGameplayStatics::SpawnEmitterAttached(MuzzleFlush, Mesh, TEXT("MuzzleFlashSocket"));
 }
 
 // Called when the game starts or when spawned
