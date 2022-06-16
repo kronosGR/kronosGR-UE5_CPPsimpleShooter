@@ -35,4 +35,7 @@ private:
 	UPROPERTY(EditAnywhere)
 	UParticleSystem* MuzzleFlush;
 
+	UPROPERTY(EditAnywhere)
+	float MaxRange = 1000;
+
 };
