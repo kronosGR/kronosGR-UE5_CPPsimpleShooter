@@ -23,6 +23,18 @@ AGun::AGun()
 void AGun::PullTrigger()
 {
 	UGameplayStatics::SpawnEmitterAttached(MuzzleFlush, Mesh, TEXT("MuzzleFlashSocket"));
+
+	APawn* OwnerPawn = Cast<APawn>(GetOwner());
+	if (OwnerPawn == nullptr) return;
+	AController* OwnerController = OwnerPawn->GetController();
+	if (OwnerController == nullptr) return;
+
+	FVector Location;
+	FRotator Rotation;
+	
+	OwnerController->GetPlayerViewPoint(Location, Rotation);
+	
+	DrawDebugCamera(GetWorld(), Location, Rotation, 99,2, FColor::Red, true);
 }
 
 // Called when the game starts or when spawned
