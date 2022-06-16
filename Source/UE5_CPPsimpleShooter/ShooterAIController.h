@@ -13,5 +13,8 @@ UCLASS()
 class UE5_CPPSIMPLESHOOTER_API AShooterAIController : public AAIController
 {
 	GENERATED_BODY()
+
+protected:
+	virtual void BeginPlay() override;
 	
 };
